@@ -1,0 +1,42 @@
+var player;
+var enemy;
+
+function setup() {
+  createCanvas(300, 500);
+  player = createSprite(150, 450);
+  
+    enemy = createSprite(150, 350, 100, 64);
+}
+
+function draw() {
+  background(160, 500, 100);}
+   
+  if (keyDown(LEFT_ARROW)) {
+    player.position.x = player.position.x - 8;
+  }
+  if (keyDown(RIGHT_ARROW)) {
+    player.position.x = player.position.x + 8;
+  }
+  
+    enemy.position.y = enemy.position.y += 5;
+  
+    if (enemy.position.y > 500) {
+    enemy.position.y = 0;
+    enemy.position.x = random(250);
+  }
+  
+  if (player.position.x > 300) {
+    alert("Game Over");
+  }
+
+  if (player.position.x < 0) {
+    alert("Game Over");
+  
+    
+  if (player.overlap(enemy)) {
+    alert("Game Over");
+  }  
+    
+  drawSprites();
+}
+    player.position.x = player.position.x + 3;
